@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:realm/realm.dart';
 
 class LoginRealm with ChangeNotifier {
-  final app = App(AppConfiguration("application-0-cwoyh"));
+  final app = App(AppConfiguration("application-0-mpfzh"));
   late User? user;
 
   Future register(String email, String password) async {
@@ -27,6 +27,11 @@ class LoginRealm with ChangeNotifier {
     } catch (e) {
       rethrow;
     }
+  }
+
+  Future<void> anonamusRegister() async {
+    user = await app.logIn(Credentials.anonymous());
+   
   }
 
   Future logout() async {

@@ -9,14 +9,21 @@ part of 'wallet_realm_model.dart';
 class MyCredentials extends _MyCredentials
     with RealmEntity, RealmObjectBase, RealmObject {
   MyCredentials(
+    ObjectId id,
     String publicKeyHex,
     String address,
   ) {
+    RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'publicKeyHex', publicKeyHex);
     RealmObjectBase.set(this, 'address', address);
   }
 
   MyCredentials._();
+
+  @override
+  ObjectId get id => RealmObjectBase.get<ObjectId>(this, 'id') as ObjectId;
+  @override
+  set id(ObjectId value) => RealmObjectBase.set(this, 'id', value);
 
   @override
   String get publicKeyHex =>
@@ -43,8 +50,8 @@ class MyCredentials extends _MyCredentials
     RealmObjectBase.registerFactory(MyCredentials._);
     return const SchemaObject(
         ObjectType.realmObject, MyCredentials, 'MyCredentials', [
-      SchemaProperty('publicKeyHex', RealmPropertyType.string,
-          primaryKey: true),
+      SchemaProperty('id', RealmPropertyType.objectid, primaryKey: true),
+      SchemaProperty('publicKeyHex', RealmPropertyType.string),
       SchemaProperty('address', RealmPropertyType.string),
     ]);
   }
