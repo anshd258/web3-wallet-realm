@@ -13,8 +13,7 @@ import 'package:realm/realm.dart';
 import 'package:web3dart/web3dart.dart';
 
 class WalletServices extends ChangeNotifier {
-  String rpcUrl =
-      INFURA_KEY;
+  String rpcUrl = INFURA_KEY;
   var priateKeyHex = '';
   double balance = 0.00;
 
@@ -110,8 +109,7 @@ class WalletServices extends ChangeNotifier {
   }
 
   void getTransections() async {
-    final apiKey =
-       MORALIS_KEY ;
+    final apiKey = MORALIS_KEY;
     final url =
         'https://deep-index.moralis.io/api/v2/${myCredentials!.address}/verbose?chain=sepolia';
 
