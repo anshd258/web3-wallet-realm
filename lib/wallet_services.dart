@@ -14,7 +14,7 @@ import 'package:web3dart/web3dart.dart';
 
 class WalletServices extends ChangeNotifier {
   String rpcUrl =
-      "https://sepolia.infura.io/v3/796bf991d055491fb1b8891ef8cb1710";
+      INFURA_KEY;
   var priateKeyHex = '';
   double balance = 0.00;
 
