@@ -1,4 +1,4 @@
-# wallet_flutter
+# Multiseed wallet
 
 A new Flutter project.
 
